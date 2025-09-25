@@ -1,3 +1,4 @@
+import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { createSelectiveContext } from '../index';
 import { render, screen, fireEvent, act } from '@testing-library/react';

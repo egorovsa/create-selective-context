@@ -2,35 +2,36 @@ import React from 'react';
 import { createSelectiveContext } from '../index';
 
 // Create demo contexts
-const { Provider: CounterProvider, useContext: useCounter } = createSelectiveContext({
-  count: 0,
-  name: 'Counter Demo',
-  isVisible: true
-});
+const { Provider: CounterProvider, useContext: useCounter } =
+  createSelectiveContext({
+    count: 0,
+    name: 'Counter Demo',
+    isVisible: true,
+  });
 
 const { Provider: UserProvider, useContext: useUser } = createSelectiveContext({
   user: {
     id: 1,
     name: 'John Doe',
     email: 'john@example.com',
-    age: 30
+    age: 30,
   },
   settings: {
     theme: 'light',
     notifications: true,
-    language: 'en'
+    language: 'en',
   },
-  isLoading: false
+  isLoading: false,
 });
 
 const { Provider: TodoProvider, useContext: useTodo } = createSelectiveContext({
   todos: [
     { id: 1, text: 'Learn createSelectiveContext', completed: false },
     { id: 2, text: 'Build amazing apps', completed: false },
-    { id: 3, text: 'Share with community', completed: true }
+    { id: 3, text: 'Share with community', completed: true },
   ],
   filter: 'all',
-  newTodo: ''
+  newTodo: '',
 });
 
 // Demo Components
@@ -45,12 +46,8 @@ const CounterDemo = () => {
       <p>Name: {name}</p>
       <p>Count: {count}</p>
       <p>Visible: {isVisible ? 'Yes' : 'No'}</p>
-      <button onClick={() => setState({ count: count + 1 })}>
-        Increment
-      </button>
-      <button onClick={() => setState({ count: count - 1 })}>
-        Decrement
-      </button>
+      <button onClick={() => setState({ count: count + 1 })}>Increment</button>
+      <button onClick={() => setState({ count: count - 1 })}>Decrement</button>
       <button onClick={() => setState({ isVisible: !isVisible })}>
         Toggle Visibility
       </button>
@@ -74,19 +71,38 @@ const UserDemo = () => {
         <p>Theme: {theme}</p>
         <p>Notifications: {notifications ? 'On' : 'Off'}</p>
       </div>
-      <button onClick={() => setState({
-        user: { ...user, name: user.name === 'John Doe' ? 'Jane Smith' : 'John Doe' }
-      })}>
+      <button
+        onClick={() =>
+          setState({
+            user: {
+              ...user,
+              name: user.name === 'John Doe' ? 'Jane Smith' : 'John Doe',
+            },
+          })
+        }
+      >
         Change Name
       </button>
-      <button onClick={() => setState({
-        settings: { theme: theme === 'light' ? 'dark' : 'light', notifications, language: 'en' }
-      })}>
+      <button
+        onClick={() =>
+          setState({
+            settings: {
+              theme: theme === 'light' ? 'dark' : 'light',
+              notifications,
+              language: 'en',
+            },
+          })
+        }
+      >
         Toggle Theme
       </button>
-      <button onClick={() => setState({
-        settings: { theme, notifications: !notifications, language: 'en' }
-      })}>
+      <button
+        onClick={() =>
+          setState({
+            settings: { theme, notifications: !notifications, language: 'en' },
+          })
+        }
+      >
         Toggle Notifications
       </button>
     </div>
@@ -99,33 +115,36 @@ const TodoDemo = () => {
   const [newTodo, setState] = useTodo((state) => state.newTodo);
   const [, setTodoState] = useTodo((state) => state);
 
-  const filteredTodos = todos.filter(todo => {
+  const filteredTodos = todos.filter((todo) => {
     if (filter === 'completed') return todo.completed;
     if (filter === 'active') return !todo.completed;
     return true;
   });
 
-  const completedCount = todos.filter(todo => todo.completed).length;
+  const completedCount = todos.filter((todo) => todo.completed).length;
   const totalCount = todos.length;
 
   const addTodo = () => {
     if (newTodo.trim()) {
-      setTodoState(state => ({
-        todos: [...state.todos, {
-          id: Date.now(),
-          text: newTodo,
-          completed: false
-        }],
-        newTodo: ''
+      setTodoState((state) => ({
+        todos: [
+          ...state.todos,
+          {
+            id: Date.now(),
+            text: newTodo,
+            completed: false,
+          },
+        ],
+        newTodo: '',
       }));
     }
   };
 
   const toggleTodo = (id: number) => {
-    setTodoState(state => ({
-      todos: state.todos.map(todo =>
+    setTodoState((state) => ({
+      todos: state.todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
+      ),
     }));
   };
 
@@ -133,7 +152,9 @@ const TodoDemo = () => {
     <div className="demo-section">
       <h3>Todo App Demo</h3>
       <div>
-        <p>Total: {totalCount} | Completed: {completedCount}</p>
+        <p>
+          Total: {totalCount} | Completed: {completedCount}
+        </p>
         <input
           value={newTodo}
           onChange={(e) => setState({ newTodo: e.target.value })}
@@ -154,14 +175,18 @@ const TodoDemo = () => {
         </button>
       </div>
       <ul>
-        {filteredTodos.map(todo => (
+        {filteredTodos.map((todo) => (
           <li key={todo.id}>
             <input
               type="checkbox"
               checked={todo.completed}
               onChange={() => toggleTodo(todo.id)}
             />
-            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+            <span
+              style={{
+                textDecoration: todo.completed ? 'line-through' : 'none',
+              }}
+            >
               {todo.text}
             </span>
           </li>
@@ -174,7 +199,7 @@ const TodoDemo = () => {
 const PerformanceDemo = () => {
   const renderCountRef = React.useRef(0);
   renderCountRef.current += 1;
-  
+
   // This component only subscribes to count, so it won't re-render when name changes
   const [count] = useCounter((state) => state.count);
   const [, setCounterState] = useCounter((state) => state);
@@ -188,11 +213,14 @@ const PerformanceDemo = () => {
   return (
     <div className="demo-section">
       <h3>Performance Demo</h3>
-      <p>This component only subscribes to 'count'</p>
+      <p>This component only subscribes to &apos;count&apos;</p>
       <p>Count: {count}</p>
       <p>Render count: {renderCountRef.current}</p>
       <button onClick={resetRenderCount}>Reset Render Count</button>
-      <p>Try changing the name in Counter Demo - this component won't re-render!</p>
+      <p>
+        Try changing the name in Counter Demo - this component won&apos;t
+        re-render!
+      </p>
     </div>
   );
 };
@@ -209,7 +237,9 @@ export const DevLayout: React.FC = () => {
       <main className="dev-main">
         <section className="install-section">
           <h2>Installation</h2>
-          <pre><code>npm install create-selective-context</code></pre>
+          <pre>
+            <code>npm install create-selective-context</code>
+          </pre>
         </section>
 
         <CounterProvider>
@@ -230,7 +260,8 @@ export const DevLayout: React.FC = () => {
           <h2>Code Examples</h2>
           <div className="code-block">
             <h3>Basic Usage</h3>
-            <pre><code>{`import { createSelectiveContext } from 'create-selective-context';
+            <pre>
+              <code>{`import { createSelectiveContext } from 'create-selective-context';
 
 const { Provider, useContext } = createSelectiveContext({
   count: 0,
@@ -248,19 +279,22 @@ function Counter() {
       </button>
     </div>
   );
-}`}</code></pre>
+}`}</code>
+            </pre>
           </div>
 
           <div className="code-block">
             <h3>Selective Subscriptions</h3>
-            <pre><code>{`// Component A - only re-renders when count changes
+            <pre>
+              <code>{`// Component A - only re-renders when count changes
 const [count] = useContext((state) => state.count);
 
 // Component B - only re-renders when name changes  
 const [name] = useContext((state) => state.name);
 
 // Component C - only re-renders when user.age changes
-const [age] = useContext((state) => state.user.age);`}</code></pre>
+const [age] = useContext((state) => state.user.age);`}</code>
+            </pre>
           </div>
         </section>
 
