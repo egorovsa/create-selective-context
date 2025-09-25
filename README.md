@@ -7,6 +7,8 @@
 
 A lightweight React context factory that provides **selective subscriptions** to prevent unnecessary re-renders. Built with `useSyncExternalStore` for optimal performance and React 18+ compatibility.
 
+**[🎮 Live Demo](https://egorovsa.github.io/create-selective-context/)**
+
 ## The Problem
 
 Standard React Context causes all consuming components to re-render whenever any part of the context state changes, even if they only care about specific fields. This leads to performance issues in large applications.
