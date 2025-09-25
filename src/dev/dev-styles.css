@@ -1,0 +1,189 @@
+.dev-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.dev-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+}
+
+.dev-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.dev-header p {
+  margin: 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.dev-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.install-section {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.install-section h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.install-section pre {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.demos-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.demo-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.demo-section h3 {
+  margin: 0 0 20px 0;
+  color: #2d3748;
+  font-size: 1.5rem;
+}
+
+.demo-section p {
+  margin: 10px 0;
+  color: #4a5568;
+}
+
+.demo-section button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.demo-section button:hover {
+  background: #5a67d8;
+}
+
+.demo-section input {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.demo-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.demo-section li {
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.demo-section li:last-child {
+  border-bottom: none;
+}
+
+.code-examples {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.code-examples h2 {
+  margin: 0 0 30px 0;
+  color: #333;
+}
+
+.code-block {
+  margin-bottom: 30px;
+}
+
+.code-block h3 {
+  margin: 0 0 15px 0;
+  color: #2d3748;
+}
+
+.code-block pre {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.features-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.features-section h2 {
+  margin: 0 0 20px 0;
+  color: #2d3748;
+}
+
+.features-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features-section li {
+  padding: 10px 0;
+  color: #4a5568;
+  font-size: 16px;
+}
+
+.dev-footer {
+  text-align: center;
+  padding: 40px 0;
+  color: #718096;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 40px;
+}
+
+.dev-footer p {
+  margin: 0;
+  font-size: 16px;
+}

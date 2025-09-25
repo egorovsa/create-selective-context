@@ -1,0 +1,84 @@
+{
+  "name": "create-selective-context",
+  "description": "A lightweight React context factory with selective subscriptions to prevent unnecessary re-renders",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.ts",
+  "author": "Sergey Egorov",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "context",
+    "state-management",
+    "performance",
+    "selective-subscription",
+    "useSyncExternalStore",
+    "typescript",
+    "react-context",
+    "context-api",
+    "re-render",
+    "optimization",
+    "react-hooks",
+    "state",
+    "subscription",
+    "external-store",
+    "react-18",
+    "react-19",
+    "zero-dependencies",
+    "lightweight"
+  ],
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev": "vite --config vite-dev.config.ts",
+    "build": "npm run test && vite build",
+    "build:docs": "vite build --config vite-docs.config.ts",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run --environment jsdom",
+    "test:watch": "vitest --environment jsdom",
+    "lint": "eslint --quiet",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "19.1.9",
+    "@types/react-dom": "19.1.7",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.2",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0",
+    "vite": "^7.0.6",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/egorovsa/create-selective-context.git"
+  },
+  "homepage": "https://github.com/egorovsa/create-selective-context",
+  "bugs": {
+    "url": "https://github.com/egorovsa/create-selective-context/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  }
+}
