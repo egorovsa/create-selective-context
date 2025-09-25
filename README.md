@@ -220,11 +220,12 @@ const { useContext } = createSelectiveContext(initialState);
 const [value, setState] = useContext((state) => state.specificField);
 ```
 
-## Browser Support
+## Requirements
 
 - React 18+
-- Modern browsers with ES6+ support
+- Node.js 16+ (for development)
 - TypeScript 4.5+ (for TypeScript projects)
+- Modern browsers that support ES6+ and React 18+
 
 ## License
 

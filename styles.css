@@ -1,7 +1,7 @@
 /* 
- * react-video-seek-slider styles
- * This file is a re-export of the styles from lib/styles.css
- * Users can import it as: import 'react-video-seek-slider/styles.css'
+ * create-selective-context styles
+ * This file is a re-export of the styles from lib/index.css
+ * Users can import it as: import 'create-selective-context/styles.css'
  */
 
 @import './lib/index.css';
